@@ -6,7 +6,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const galleryRef = document.querySelector('.gallery');
 
 // створення і рендер розмітки елементів галереї
-const galleryElements = galleryItems.map(({ preview, original, description }) => `<li class="gallery__item"><a href="${original}"><img class="gallery__image" src="${preview}" alt="${description}"></a></li>`).join('');
+const galleryElements = galleryItems.map(({ preview, original, description }) => `<a href="${original}"><img class="gallery__image" src="${preview}" alt="${description}"></a>`).join('');
 
 galleryRef.insertAdjacentHTML('beforeend', galleryElements);
 
