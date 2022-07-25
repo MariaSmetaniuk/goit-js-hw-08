@@ -1,5 +1,15 @@
-// Add imports above this line
 import { galleryItems } from './gallery-items';
-// Change code below this line
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
-console.log(galleryItems);
+// посилання на div з галереєю
+const galleryRef = document.querySelector('.gallery');
+
+// створення і рендер розмітки елементів галереї
+const galleryElements = galleryItems.map(({ preview, original, description }) => `<li class="gallery__item"><a href="${original}"><img class="gallery__image" src="${preview}" alt="${description}"></a></li>`).join('');
+
+galleryRef.insertAdjacentHTML('beforeend', galleryElements);
+
+
+// бібліотека SimpleLightbox
+const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: '250' });
